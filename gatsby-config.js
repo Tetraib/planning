@@ -1,4 +1,4 @@
-const title = 'App Starter'
+const title = 'Planning'
 module.exports = {
   siteMetadata: {
     title: title,
@@ -19,9 +19,9 @@ module.exports = {
     },
     'gatsby-plugin-offline',
     {
-      resolve: 'gatsby-plugin-firebase',
+      resolve: 'gatsby-plugin-reactfire',
       options: {
-        credentials: {
+        firebaseConfig: {
           apiKey: "AIzaSyBdOAU2bcA7WE5JpaTFOv9JpjEpcj-YyR8",
           authDomain: "planning-2f4c9.firebaseapp.com",
           projectId: "planning-2f4c9",

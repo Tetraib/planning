@@ -1,7 +1,7 @@
 {
-  "name": "appstarter",
+  "name": "planning",
   "version": "1.0.0",
-  "description": "App Starter",
+  "description": "Planning",
   "author": "Thibaut Constant",
   "keywords": [
     "gatsby"
@@ -18,14 +18,16 @@
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.60",
     "firebase": "^8.8.1",
     "firebase-tools": "^9.16.0",
     "gatsby": "^3.6.2",
-    "gatsby-plugin-firebase": "^0.2.0-beta.4",
     "gatsby-plugin-manifest": "^3.10.0",
     "gatsby-plugin-offline": "^4.10.0",
+    "gatsby-plugin-reactfire": "^0.1.0",
     "gatsby-theme-material-ui": "^2.0.1",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "reactfire": "^3.0.0-rc.3"
   }
 }
