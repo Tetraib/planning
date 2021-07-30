@@ -12,7 +12,8 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "init": "firebase logout && firebase login && firebase init"
+    "init": "firebase logout && firebase login && firebase init",
+    "deploy": "gatsby clean && gatsby build && firebase deploy"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.4",
