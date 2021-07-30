@@ -1,0 +1,30 @@
+{
+  "name": "appstarter",
+  "version": "1.0.0",
+  "description": "App Starter",
+  "author": "Thibaut Constant",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "init": "firebase logout && firebase login && firebase init"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.11.2",
+    "firebase": "^8.8.1",
+    "firebase-tools": "^9.16.0",
+    "gatsby": "^3.6.2",
+    "gatsby-plugin-firebase": "^0.2.0-beta.4",
+    "gatsby-plugin-manifest": "^3.10.0",
+    "gatsby-plugin-offline": "^4.10.0",
+    "gatsby-theme-material-ui": "^2.0.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
