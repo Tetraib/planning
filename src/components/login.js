@@ -1,33 +1,43 @@
 import React from 'react'
 import firebase from 'firebase/app'
 import { useSigninCheck, useAuth } from 'reactfire'
-import Skeleton from '@material-ui/lab/Skeleton'
+import IconButton from '@material-ui/core/IconButton'
+import LockIcon from '@material-ui/icons/Lock'
+import AccountCircleIcon from '@material-ui/icons/AccountCircle'
+
+const errorHandle = (e) => {
+  console.log(e)
+}
 
 const Login = () => {
   const { status, data: signInCheckResult } = useSigninCheck()
   const auth = useAuth()
   const signIn = async () => {
-    await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+    await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(errorHandle)
   }
   const signOut = async () => {
-    await auth.signOut()
+    await auth.signOut().catch(errorHandle)
   }
 
   if (status === 'loading') {
-    return <Skeleton variant="text" />
+    return (
+      <IconButton>
+        <AccountCircleIcon />
+      </IconButton>
+    )
   }
 
   if (signInCheckResult.signedIn === true) {
     return (
-      <button className='button is-info' onClick={signOut}>
-        Sign Out {signInCheckResult.user.displayName}
-      </button>
+      <IconButton onClick={signOut}>
+        <LockIcon />
+      </IconButton>
     )
   } else {
     return (
-      <button className='button is-primary' onClick={signIn}>
-        Sign In
-      </button>
+      <IconButton onClick={signIn}>
+        <AccountCircleIcon />
+      </IconButton>
     )
   }
 }

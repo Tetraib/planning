@@ -22,6 +22,7 @@
     "firebase": "^8.8.1",
     "firebase-tools": "^9.16.0",
     "gatsby": "^3.6.2",
+    "gatsby-plugin-layout": "^2.10.0",
     "gatsby-plugin-manifest": "^3.10.0",
     "gatsby-plugin-offline": "^4.10.0",
     "gatsby-plugin-reactfire": "^0.1.0",
