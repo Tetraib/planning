@@ -4,7 +4,7 @@ import UserItem from './userItem'
 import Fab from '@material-ui/core/Fab'
 import { makeStyles } from '@material-ui/core/styles'
 import AddIcon from '@material-ui/icons/Add'
-import { useFirestore, useFirestoreCollectionData } from 'reactfire'
+import { useFirestore, useFirestoreCollectionData, useSigninCheck } from 'reactfire'
 const useStyles = makeStyles((theme) => ({
   fab: {
     position: 'fixed',
@@ -13,17 +13,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const users = { 123: { name: 'Jean' }, 456: { name: 'Raymond' } }
 const UserList = () => {
-  const usersCollection = useFirestore().collection('users');
-  const lobby = useFirestoreCollectionData(usersCollection);
-  console.log(lobby)
+  const { status } = useSigninCheck()
+
+  const usersCollection = useFirestore().collection('users')
+  const { data: users = [{ nom: 'test' }] } = useFirestoreCollectionData(usersCollection)
+  console.log(users)
   const classes = useStyles()
   return (
     <div>
       <List>
-        {Object.keys(users).map((user) => {
-          return <UserItem user={users[user]} />
+        {users.map((user) => {
+          return <UserItem user={user.nom} />
         })}
       </List>
       <Fab className={classes.fab}>
