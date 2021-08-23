@@ -9,6 +9,13 @@ const errorHandle = (e) => {
   console.log(e)
 }
 
+const clearFirestoreCache = () => {
+  const map = global.globalThis['_reactFirePreloadedObservables'];
+  Array.from(map.keys()).forEach(
+    (key) => key.includes('firestore') && map.delete(key),
+  );
+};
+
 const Login = () => {
   const { status, data: signInCheckResult } = useSigninCheck()
   const auth = useAuth()
@@ -16,7 +23,15 @@ const Login = () => {
     await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(errorHandle)
   }
   const signOut = async () => {
-    await auth.signOut().catch(errorHandle)
+    await auth
+      .signOut()
+      .catch(errorHandle)
+      .then(() => {
+        // fix a bug in react fire https://github.com/FirebaseExtended/reactfire/discussions/228
+        clearFirestoreCache()
+        // Or reaload browser
+        // window.location.reload()
+      })
   }
 
   if (status === 'loading') {

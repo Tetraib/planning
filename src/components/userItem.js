@@ -7,12 +7,12 @@ import patchBaseButtonComponent from 'gatsby-material-ui-components/lib/patch-ba
 const ListItemPatched = patchBaseButtonComponent(ListItem)
 
 const UserItem = ({user}) => {
-  return (
+ return (
     <ListItemPatched button to={'/'}>
       <ListItemAvatar>
         <Avatar />
       </ListItemAvatar>
-      <ListItemText primary={user.name} />
+      <ListItemText primary={user.nom} />
     </ListItemPatched>
   )
 }
